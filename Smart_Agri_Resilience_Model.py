@@ -55,7 +55,7 @@ tabs = st.tabs([
 
 ##### Plants Tab #####
 with tabs[0]:
-    st.header("Plant Monitoring & Forecasting")
+    st.header("Crop Monitoring & Forecasting")
     plant_type = st.selectbox(
         "Plant Type", ["Potato", "Wheat", "Barley", "Maize"], key="plant_type"
     )
