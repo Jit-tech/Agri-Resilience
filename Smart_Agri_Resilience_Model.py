@@ -252,5 +252,5 @@ with tabs[4]:
 st.sidebar.title("Smart Agri Resilience Simulator")
 st.sidebar.markdown(
     "Developed by Jit \n"
-    "   (Powered by Econometrics and AI)"
+    "   (Powered by Econometrics, AI and Wearable Sensor Data)"
 )
