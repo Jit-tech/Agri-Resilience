@@ -50,7 +50,7 @@ init_state()
 
 # UI Tabs
 tabs = st.tabs([
-    "Plants", "Animals", "AI Agent", "Supply Chain", "SDG Overlay"
+    "Crops", "Livestocks", "AI Agent", "Supply Chain", "SDG Overlay"
 ])
 
 ##### Plants Tab #####
@@ -90,7 +90,7 @@ with tabs[0]:
     loss_map = {"None": 0, "Heatwave": 15, "Drought": 25, "Flood": 20}
     predicted_yield = float(100 - (loss_map[climate_shock] + plant_stress * 30))
 
-    st.metric("Plant Stress Index", f"{plant_stress:.2f}")
+    st.metric("Crop Stress Index", f"{plant_stress:.2f}")
     st.metric("Predicted Yield (%)", f"{predicted_yield:.2f}")
     st.caption("Stress index = moisture + flow + chlorophyll + CRISPR boost.")
 
@@ -108,7 +108,7 @@ with tabs[0]:
             x='Date' if 'Date' in df.columns else df.index,
             y=['Yield', 'ForecastYield'],
             labels={'value': 'Yield (%)', 'Date': 'Date'},
-            title='Plant Yield: Actual vs Predicted',
+            title='Crop Yield: Actual vs Predicted',
         )
         fig.update_traces(mode='lines+markers')
         fig.update_traces(
@@ -158,7 +158,7 @@ with tabs[1]:
     methane = float(500 - (feed_intake * 5 + gait * 100))
     milk_yield = float(feed_intake * (welfare_index + 0.3))
 
-    st.metric("Animal Welfare Index", f"{welfare_index:.2f}")
+    st.metric("Livestock Welfare Index", f"{welfare_index:.2f}")
     st.metric("Methane Emission (g/day)", f"{methane:.2f}")
     st.metric("Predicted Milk Yield (L/day)", f"{milk_yield:.2f}")
     st.caption("Welfare index integrates physiological & activity metrics.")
@@ -193,7 +193,7 @@ with tabs[1]:
 with tabs[2]:
     st.header("Agentic AI Conversational Interface")
     # Use Responses API for dynamic chat
-    user_query = st.text_input("Ask a question about plant or animal scenarios:", key="agent_input")
+    user_query = st.text_input("Ask a question about crop or livestock scenarios:", key="agent_input")
     if user_query:
         try:
             response = client.responses.create(
